@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Header from "../components/Header";
+import DynamicHeader from "../components/DynamicHeader";
 import Footer from "../components/Footer";
 import { Providers } from "./providers";
 import "./globals.css";
@@ -22,14 +22,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode; }>) 
+{
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
         <Providers>
-          <Header />
+          <DynamicHeader />
           <main className="flex-1">
             {children}
           </main>
