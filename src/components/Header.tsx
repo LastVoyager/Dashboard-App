@@ -14,8 +14,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import ThemeToggleButton from './ThemeToggleButton';
 import { useSession, signIn, signOut} from "next-auth/react"
-
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -47,7 +47,14 @@ function Header () {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar 
+      position="static" 
+      // AppBar didn`t see custom dark.tsx color through the toggling logic. 
+      // I don`t know why so must force use it color directly here!
+      sx={{ 
+        backgroundColor: (theme) => theme.palette.primary.main 
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -137,6 +144,8 @@ function Header () {
               <Typography sx={{ mr: 2 }}> Signed in as {session.user?.email}</Typography>
             </Box>
           )}
+         
+          {mounted && (<ThemeToggleButton />)}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open profile settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

@@ -9,11 +9,13 @@ function Home () {
   const { data: session } = useSession();
   
   return (
-    <div className="flex-column">
-      <main className="flex w-full flex-col items-center justify-between">
-        {session && (<><Dashboard /> <SideMenu /></>)}
-        <Login />
-      </main>
+    <div className="flex w-full flex-col items-center justify-between">
+      {session && (
+        <>
+          <Dashboard /> 
+          <SideMenu />
+        </>)}
+      <Login />
     </div>
   );
 }

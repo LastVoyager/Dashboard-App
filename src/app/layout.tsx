@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import DynamicHeader from "../components/DynamicHeader";
 import Footer from "../components/Footer";
 import { Providers } from "./providers";
-import { CssBaseline } from "@mui/material";
 import scss from "./layout.module.scss";
 import "../styles/globals.css"; //needed to be removed later, after all tailwind styles will be replaced!
 
@@ -29,9 +28,8 @@ const RootLayout = ({
     <html lang="en">
       <body className={scss.main}>
         <Providers>
-          <CssBaseline />
           <DynamicHeader />
-          <main className="flex-1">
+          <main style={{flex: 1}}>
             {children}
           </main>
           <Footer />
