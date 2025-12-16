@@ -15,6 +15,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import ThemeToggleButton from './ThemeToggleButton';
+import { useMediaQuery } from '@mui/material';
 import { useSession, signIn, signOut} from "next-auth/react"
 
 const pages = ['Products', 'Pricing', 'Blog'];
@@ -30,6 +31,8 @@ function Header () {
   React.useEffect(() => {
     setMounted(true);
   }, []);
+
+  const TableCheck = useMediaQuery('(min-width:690px)'); // ✅ Fixed typo: mid-width → min-width
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -126,7 +129,7 @@ function Header () {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            DataBase
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -139,12 +142,11 @@ function Header () {
               </Button>
             ))}
           </Box>
-          {mounted && session && (
+          {TableCheck && mounted && session && (
             <Box>
               <Typography sx={{ mr: 2 }}> Signed in as {session.user?.email}</Typography>
             </Box>
           )}
-         
           {mounted && (<ThemeToggleButton />)}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open profile settings">

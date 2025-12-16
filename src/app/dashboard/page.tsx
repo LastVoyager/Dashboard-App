@@ -1,11 +1,26 @@
 import React from 'react';
+import {Box, Grid, Paper} from '@mui/material';
+import scss from './dashboard.module.scss';
 
-function Dashboard() {
+const Dashboard = () => {
   return (
-    <div className="p-4 flex  text-center items-center justify-center">
-      <h1 className="text-3xl font-bold mb-6">Dashboard</h1>
-    </div>
-  );
+    <Box>
+      <Grid container spacing={2}>
+        <Grid size={{ xs: 12, sm: 4 }}>
+          <Paper className={scss.dataCard}>Card 1</Paper>
+        </Grid>
+        <Grid size={{ xs: 12, sm: 4 }}>
+          <Paper className={scss.dataCard}>Card 2</Paper>
+        </Grid>
+        <Grid size={{ xs: 12, sm: 4 }}>
+          <Paper className={scss.dataCard}>Card 3</Paper>
+        </Grid>
+        <Grid size={12} sx={{ marginTop: 2 }}>
+          <Paper className={scss.dataCard}>Full Width Card</Paper>
+        </Grid>
+      </Grid>
+    </Box>
+  )
 }
 
 export default Dashboard;
