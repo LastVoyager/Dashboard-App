@@ -1,7 +1,7 @@
 "use client";
 
 import Dashboard from "./dashboard/page"; // import education purposes approach
-import Login from "./login/page";
+import Login from "./auth/page";
 import { useSession } from "next-auth/react";
 
 function Home() {
