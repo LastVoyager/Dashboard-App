@@ -1,16 +1,55 @@
 "use client";
 
-import Dashboard from "./dashboard/page"; // import education purposes approach
-import Login from "./auth/page";
-import { useSession } from "next-auth/react";
+import Dashboard from "./dashboard/page";
+import { useSession, signIn } from "next-auth/react";
+import { Button, Typography, useTheme } from "@mui/material";
 
 function Home() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
+  //const theme = useTheme();
+
+  // Loading State
+  if (status === "loading") {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "calc(100vh - 124px)",
+          backgroundColor: "#666666", // Need to be latly fixed to match theme mode!!!!
+          width: "100vw",
+          marginLeft: "-24px",
+          marginRight: "-24px",
+        }}
+      >
+        <Typography variant="h6" style={{ color: "#ffffff" }}>
+          Loading...
+        </Typography>
+      </div>
+    );
+  }
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-      {session && <Dashboard />}
-      {!session && <Login />}
+      {session ? (
+        <>
+          <Typography
+            variant="h5"
+            color="rgba(238, 152, 22, 0.67)"
+            sx={{ textAlign: "center" }}
+          >
+            Thank you for logging in
+          </Typography>
+          <div style={{ marginLeft: "40px" }}>
+            <Dashboard />
+          </div>
+        </>
+      ) : (
+        <Button variant="contained" color="success" onClick={() => signIn()}>
+          Sign in
+        </Button>
+      )}
     </div>
   );
 }

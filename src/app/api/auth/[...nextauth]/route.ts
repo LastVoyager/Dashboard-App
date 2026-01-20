@@ -1,5 +1,5 @@
-import NextAuth from 'next-auth'
-import GoogleProvider from 'next-auth/providers/google'
+import NextAuth from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
 
 const handler = NextAuth({
   providers: [
@@ -10,11 +10,11 @@ const handler = NextAuth({
         params: {
           prompt: "consent",
           access_type: "offline",
-          response_type: "code"   
-        }
-      }
+          response_type: "code",
+        },
+      },
     }),
-  ]
-})
+  ],
+});
 
-export { handler as GET, handler as POST }
+export { handler as GET, handler as POST };

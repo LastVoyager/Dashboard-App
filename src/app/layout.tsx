@@ -31,7 +31,6 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
             style={{
               flex: 1,
               padding: "0 24px",
-              marginLeft: "48px", // Ширина закрытого SideMenu + отступ
             }}
           >
             {children}

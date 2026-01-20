@@ -1,12 +1,17 @@
 "use client";
 
 import React from "react";
-import Login from "../page";
-import { useSession } from "next-auth/react";
-import { Box } from "@mui/material";
+import { useSession, signIn } from "next-auth/react";
+import { Box, Button } from "@mui/material";
 
 const SignIn = () => {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
+
+  React.useEffect(() => {
+    if (session) {
+      window.location.href = "/";
+    }
+  }, [session]);
 
   return (
     <Box
@@ -17,10 +22,10 @@ const SignIn = () => {
         justifyContent: "center",
       }}
     >
-      <h1 style={{ marginBottom: "20px" }}>
-        {session ? `Thank you for logging in` : "Please log in"}
-      </h1>
-      <Login />
+      <h1 style={{ marginBottom: "20px" }}>Please log in</h1>
+      <Button variant="contained" color="success" onClick={() => signIn()}>
+        Sign in
+      </Button>
     </Box>
   );
 };
