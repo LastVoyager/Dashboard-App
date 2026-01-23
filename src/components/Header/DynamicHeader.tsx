@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 
 // My wrapper
-const Header = dynamic(() => import("../components/Header"), {
+const Header = dynamic(() => import("./Header"), {
   ssr: false,
   loading: () => (
     <header

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 //import { Geist, Geist_Mono } from "next/font/google";
-import DynamicHeader from "../components/DynamicHeader";
-import Footer from "../components/footer/Footer";
+import DynamicHeader from "../components/Header/DynamicHeader";
+import Footer from "../components/Footer/Footer";
 import { Providers } from "./providers";
 import scss from "./layout.module.scss";
 import "../styles/globals.css"; //needed to be removed later, after all tailwind styles will be replaced!

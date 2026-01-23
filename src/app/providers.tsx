@@ -7,7 +7,7 @@ import { useSession } from "next-auth/react";
 import { SessionProvider } from "next-auth/react";
 import { CssBaseline } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import SideMenu from "@/components/sideMenu/SideMenu";
+import SideMenu from "@/components/SideMenu/SideMenu";
 
 const theme = createTheme({
   colorSchemes: {
