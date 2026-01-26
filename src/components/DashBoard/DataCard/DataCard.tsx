@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Paper, Typography, Tooltip, IconButton } from "@mui/material";
 import InfoOutLinedIcon from "@mui/icons-material/InfoOutlined";

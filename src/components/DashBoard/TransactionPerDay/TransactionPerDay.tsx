@@ -4,6 +4,8 @@ import React from "react";
 import { Card, Paper, Typography, Grid } from "@mui/material";
 import scss from "./TransactionPerDay.module.scss";
 import { useTheme } from "@mui/system";
+import DataChart from "../DataChart/DataChart";
+import { lineChartData } from "../../mockData";
 
 export type TransactionCardType = {
   title: string;
@@ -11,12 +13,7 @@ export type TransactionCardType = {
   changeValue: string;
 };
 
-export type TransactionPerDayProps = {
-  data?: TransactionCardType;
-};
-
-const TransactionPerDay = (props: TransactionPerDayProps) => {
-  const { data } = props;
+const TransactionPerDay = () => {
   const theme = useTheme();
 
   return (
@@ -24,7 +21,7 @@ const TransactionPerDay = (props: TransactionPerDayProps) => {
       <Paper className={scss.transaction}>
         <div className={scss.chart}>
           <Typography>Transaction per day</Typography>
-          {/* ChartComponent's place  */}
+          <DataChart type={"line"} data={lineChartData} />
         </div>
         <div className={scss.cardWrapper}>
           <Card className={scss.card} variant={"outlined"}>

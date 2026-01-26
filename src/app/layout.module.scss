@@ -1,8 +1,13 @@
+//new layout instead my previous flex-layout!!!!!
 .main {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-template-rows: auto 1fr auto;
   height: 100vh;
   max-width: 100%;
-
   margin: 0 auto;
+  overflow: hidden;
 }

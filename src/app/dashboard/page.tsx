@@ -6,9 +6,18 @@ import scss from "./dashboard.module.scss";
 
 const Dashboard = () => {
   return (
-    <Box>
+    <Box className={scss.dashboard}>
       <DataRibbon />
       <TransactionsPerDay />
+      <div
+        style={{
+          backgroundColor: "green",
+          height: "100px",
+          margin: "10px 0px",
+        }}
+      >
+        PLACEHOLDER
+      </div>
       {/*TransactionsPerDay Doughnut Charts Bottom Row*/}
     </Box>
   );

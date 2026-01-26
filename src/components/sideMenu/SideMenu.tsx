@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import NextLink from "next/link";
 import { styled, useTheme, Theme, CSSObject } from "@mui/material/styles";
