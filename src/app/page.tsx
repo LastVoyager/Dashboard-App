@@ -31,7 +31,15 @@ function Home() {
   }
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "20px",
+        marginLeft: "48px",
+        padding: " 0px 60px",
+      }}
+    >
       {session ? (
         <>
           <Typography
@@ -41,9 +49,7 @@ function Home() {
           >
             Thank you for logging in
           </Typography>
-          <div style={{ marginLeft: "40px" }}>
-            <Dashboard />
-          </div>
+          <Dashboard />
         </>
       ) : (
         <Button variant="contained" color="success" onClick={() => signIn()}>

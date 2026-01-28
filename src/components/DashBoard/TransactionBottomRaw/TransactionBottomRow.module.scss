@@ -1,0 +1,32 @@
+.bottomRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+
+  @media screen and (min-width: 650px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media screen and (min-width: 1150px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.dataCard {
+  padding: 1rem;
+  height: 100%;
+}
+
+/* .dataCard {
+  position: relative;
+  top: 1rem;
+  padding: 1rem;
+  height: 100%;
+  width: calc(100% - 1rem);
+
+  p {
+    margin: 0;
+  }
+} */

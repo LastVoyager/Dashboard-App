@@ -32,7 +32,6 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
           <main
             style={{
               gridArea: "main",
-              padding: "0 24px",
               overflow: "auto",
               position: "relative",
             }}

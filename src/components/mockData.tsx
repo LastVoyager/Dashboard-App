@@ -22,6 +22,7 @@ export const doughnutChartData = {
   datasets: [
     {
       label: "Traffic Sources",
+      data: [300, 50, 100],
       backgroundColor: ["#ff6384", "#36a2eb", "#ffce56"],
       hoverOffSet: 4,
     },
