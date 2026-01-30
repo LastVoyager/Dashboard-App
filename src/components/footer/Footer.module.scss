@@ -6,5 +6,27 @@
   color: #ffffff;
   width: 100%;
   min-height: 60px;
-  margin-top: auto;
+  position: relative;
+  z-index: 1300;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin: auto;
+    width: 100%;
+  }
+  li {
+    padding: 1rem;
+
+    a {
+      text-decoration: none;
+
+      & :hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }

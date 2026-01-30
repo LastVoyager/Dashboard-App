@@ -1,11 +1,12 @@
 import React from "react";
+import DynamicDataGrid from "@/components/DashBoard/DataGridComponent/DynamicDataGrid";
 
-function Analytics () {
+const Data = () => {
   return (
-    <div className="p-4 flex  text-center items-center justify-center">
-      <h1>Analytics</h1>
+    <div>
+      <DynamicDataGrid />
     </div>
   );
-}
+};
 
-export default Analytics    ;
+export default Data;

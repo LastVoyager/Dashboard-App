@@ -21,7 +21,10 @@ function ProvidersContent({ children }: { children: React.ReactNode }) {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
+      <div suppressHydrationWarning>
+        {/* the CssBaseline caused random hydration issues.I didn`t find a better solution yet */}
+        <CssBaseline />
+      </div>
       {session && <SideMenu />}
       {children}
     </ThemeProvider>

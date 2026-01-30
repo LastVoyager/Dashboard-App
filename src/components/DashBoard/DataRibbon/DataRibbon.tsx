@@ -5,12 +5,7 @@ import scss from "./DataRibbon.module.scss";
 
 const DataRibbon = () => {
   return (
-    <Grid
-      container
-      gap={2}
-      className={scss.dataRibbon}
-      justifyContent={"space-around"}
-    >
+    <Grid container className={scss.dataRibbon} spacing={2}>
       <Grid>
         <DataCard
           title={"Total Sales"}

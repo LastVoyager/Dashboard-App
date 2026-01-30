@@ -13,7 +13,7 @@ import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import HomeIcon from "@mui/icons-material/Home";
+import EqualizerIcon from "@mui/icons-material/Equalizer";
 import Person2Icon from "@mui/icons-material/Person2";
 import SettingsIcon from "@mui/icons-material/Settings";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
@@ -55,7 +55,7 @@ const StyledDrawer = styled(MuiDrawer)({
 
 const menuRouteList = ["analytics", "profile", "settings", ""];
 const menuListTranslations = ["Data", "Profile", "Settings", "Logout"];
-const menuListIcons = [HomeIcon, Person2Icon, SettingsIcon, ExitToAppIcon];
+const menuListIcons = [EqualizerIcon, Person2Icon, SettingsIcon, ExitToAppIcon];
 
 function SideMenu() {
   const theme = useTheme();
@@ -85,8 +85,8 @@ function SideMenu() {
         "& .MuiDrawer-paper": {
           left: 0,
           top: mobileCheck ? 64 : 57,
-          bottom: 60,
-          height: `calc(100vh - ${mobileCheck ? 64 : 57}px - 60px)`,
+          bottom: 0,
+          height: `calc(100vh - ${mobileCheck ? 64 : 57}px)`,
           flexShrink: 0,
           whiteSpace: "nowrap",
           boxSizing: "border-box",

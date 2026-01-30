@@ -11,3 +11,17 @@
   margin: 0 auto;
   overflow: hidden;
 }
+
+.header {
+  grid-area: header;
+}
+
+.mainContent {
+  grid-area: main;
+  overflow: auto;
+  position: relative;
+}
+
+.footer {
+  grid-area: footer;
+}

@@ -18,10 +18,10 @@ import { useSession, signIn, signOut } from "next-auth/react";
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
+    null,
   );
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
+    null,
   );
   const [mounted, setMounted] = React.useState(false);
   const { data: session, status } = useSession();
@@ -77,7 +77,6 @@ function Header() {
           >
             DataBase
           </Typography>
-
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
@@ -98,56 +97,63 @@ function Header() {
             DataBase
           </Typography>
 
-          {TableCheck && mounted && session && (
-            <Box sx={{ marginLeft: "auto" }}>
+          <Box
+            sx={{
+              marginLeft: "auto",
+              display: "flex",
+              alignItems: "center",
+              gap: 1,
+            }}
+          >
+            {TableCheck && mounted && session && (
               <Typography sx={{ mr: 2 }}>
                 {" "}
                 Signed in as {session.user?.email}
               </Typography>
-            </Box>
-          )}
-          {mounted && <ThemeToggleButton />}
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open profile settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                {!mounted || status === "loading" ? (
-                  <Avatar />
-                ) : status === "authenticated" ? (
-                  <Avatar
-                    alt={session?.user?.name || ""}
-                    src={session?.user?.image || undefined}
-                  />
-                ) : (
-                  <Avatar>?</Avatar>
-                )}
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              <MenuItem
-                onClick={() => {
-                  return session ? signOut() : signIn();
+            )}
+            {mounted && <ThemeToggleButton />}
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Open profile settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  {!mounted || status === "loading" ? (
+                    <Avatar />
+                  ) : status === "authenticated" ? (
+                    <Avatar
+                      alt={session?.user?.name || ""}
+                      src={session?.user?.image || undefined}
+                    />
+                  ) : (
+                    <Avatar>?</Avatar>
+                  )}
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: "45px" }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
                 }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
               >
-                <Typography sx={{ textAlign: "center" }}>
-                  {session ? "Logout" : "Login"}
-                </Typography>
-              </MenuItem>
-            </Menu>
+                <MenuItem
+                  onClick={() => {
+                    return session ? signOut() : signIn();
+                  }}
+                >
+                  <Typography sx={{ textAlign: "center" }}>
+                    {session ? "Logout" : "Login"}
+                  </Typography>
+                </MenuItem>
+              </Menu>
+            </Box>
           </Box>
         </Toolbar>
       </Container>

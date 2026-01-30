@@ -32,7 +32,9 @@ const DataCard = (props: DataCardProps) => {
           </IconButton>
         </Tooltip>
       </div>
-      <Typography fontSize={"4h"}>{value}</Typography>
+      <Typography sx={{ textAlign: "center" }} fontSize={"4h"}>
+        {value}
+      </Typography>
     </Paper>
   );
 };

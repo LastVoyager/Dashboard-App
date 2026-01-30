@@ -17,10 +17,8 @@ function Home() {
           justifyContent: "center",
           alignItems: "center",
           height: "calc(100vh - 124px)",
-          backgroundColor: "#666666", // Need to be latly fixed to match theme mode dynamically!!!!
+          backgroundColor: "#4b4545", // Need to be latly fixed to match theme mode dynamically!!!!
           width: "100vw",
-          marginLeft: "-24px",
-          marginRight: "-24px",
         }}
       >
         <Typography variant="h6" style={{ color: "#ffffff" }}>

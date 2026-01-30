@@ -26,19 +26,11 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
     <html lang="en">
       <body className={scss.main}>
         <Providers>
-          <header style={{ gridArea: "header" }}>
+          <header className={scss.header}>
             <DynamicHeader />
           </header>
-          <main
-            style={{
-              gridArea: "main",
-              overflow: "auto",
-              position: "relative",
-            }}
-          >
-            {children}
-          </main>
-          <footer style={{ gridArea: "footer" }}>
+          <main className={scss.mainContent}>{children}</main>
+          <footer className={scss.footer}>
             <Footer />
           </footer>
         </Providers>
