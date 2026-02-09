@@ -18,28 +18,35 @@ const Footer = () => {
 
   return (
     <footer className={scss.footer}>
-      <Paper sx={{ width: "100%" }} color={"#262626"}>
+      <Paper
+        sx={{
+          width: "100%",
+          backgroundColor:
+            theme.palette.mode === "dark" ? "#1e1e1e" : "#f5f5f5",
+          borderTop: `1px solid ${theme.palette.mode === "dark" ? "#333" : "#e0e0e0"}`,
+        }}
+      >
         <ul role="menu">
           <li>
-            <FooterLink href="/home">Home</FooterLink>
+            <FooterLink href="/dashboard">Home</FooterLink>
           </li>
           <li>
-            <FooterLink href="/data">Data</FooterLink>
+            <FooterLink href="/dashboard/data">Data</FooterLink>
           </li>
           <li>
-            <FooterLink href="/profile">Profile</FooterLink>
+            <FooterLink href="/dashboard/profile">Profile</FooterLink>
           </li>
           <li>
-            <FooterLink href="/settings">Settings</FooterLink>
+            <FooterLink href="/dashboard/settings">Settings</FooterLink>
           </li>
-          <li>
+          {/* <li>
             <FooterLink href="/termsconditions">Terms & Conditions</FooterLink>
           </li>
           <li>
             <FooterLink href="/accessibilitystatement">
               Accessibility statement
             </FooterLink>
-          </li>
+          </li> */}
           <li>
             <Button
               variant="text"

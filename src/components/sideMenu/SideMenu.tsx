@@ -17,6 +17,7 @@ import EqualizerIcon from "@mui/icons-material/Equalizer";
 import Person2Icon from "@mui/icons-material/Person2";
 import SettingsIcon from "@mui/icons-material/Settings";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import HomeIcon from "@mui/icons-material/Home";
 
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -53,9 +54,15 @@ const StyledDrawer = styled(MuiDrawer)({
   boxSizing: "border-box",
 });
 
-const menuRouteList = ["analytics", "profile", "settings", ""];
-const menuListTranslations = ["Data", "Profile", "Settings", "Logout"];
-const menuListIcons = [EqualizerIcon, Person2Icon, SettingsIcon, ExitToAppIcon];
+const menuRouteList = ["", "/data", "/profile", "/settings", ""];
+const menuListTranslations = ["Home", "Data", "Profile", "Settings", "Logout"];
+const menuListIcons = [
+  HomeIcon,
+  EqualizerIcon,
+  Person2Icon,
+  SettingsIcon,
+  ExitToAppIcon,
+];
 
 function SideMenu() {
   const theme = useTheme();

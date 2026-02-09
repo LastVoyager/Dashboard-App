@@ -29,15 +29,7 @@ function Home() {
   }
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "20px",
-        marginLeft: "48px",
-        padding: " 0px 60px",
-      }}
-    >
+    <>
       {session ? (
         <>
           <Typography
@@ -54,7 +46,7 @@ function Home() {
           Sign in
         </Button>
       )}
-    </div>
+    </>
   );
 }
 

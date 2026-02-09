@@ -13,16 +13,15 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import ThemeToggleButton from "./ThemeToggleButton";
-import { useMediaQuery } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 import { useSession, signIn, signOut } from "next-auth/react";
+import NextLink from "next/link";
 
 function Header() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null,
-  );
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null,
   );
+  const theme = useTheme();
   const [mounted, setMounted] = React.useState(false);
   const { data: session, status } = useSession();
 
@@ -32,15 +31,8 @@ function Header() {
 
   const TableCheck = useMediaQuery("(min-width:690px)");
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
   };
 
   const handleCloseUserMenu = () => {
@@ -108,7 +100,7 @@ function Header() {
             {TableCheck && mounted && session && (
               <Typography sx={{ mr: 2 }}>
                 {" "}
-                Signed in as {session.user?.email}
+                Hello {session.user?.email}
               </Typography>
             )}
             {mounted && <ThemeToggleButton />}
@@ -143,6 +135,17 @@ function Header() {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
+                <MenuItem>
+                  <NextLink
+                    href={"/dashboard/profile"}
+                    style={{
+                      color: theme.palette.text.primary,
+                      textDecoration: "none",
+                    }}
+                  >
+                    <Typography>Profile</Typography>
+                  </NextLink>
+                </MenuItem>
                 <MenuItem
                   onClick={() => {
                     return session ? signOut() : signIn();
